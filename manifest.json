@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Sinónimos para Google Docs",
+  "version": "1.0.0",
+  "description": "Muestra sinónimos y definiciones en español de la palabra que escribes en Google Docs, justo debajo del cursor.",
+  "minimum_chrome_version": "88",
+  "host_permissions": [
+    "https://www.wordreference.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://docs.google.com/document/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
